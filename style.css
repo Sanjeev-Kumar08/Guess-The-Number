@@ -1,0 +1,88 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    text-align: center;
+    padding-top: 50px;
+  }
+  
+  h1 {
+    color: #333;
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  h3 {
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  #input {
+    padding: 12px;
+    font-size: 16px;
+    width: 220px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  #button {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #button:hover {
+    background-color: #45a049;
+  }
+  
+  .parentDiv {
+    background-color: #fff;
+    width: 320px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  #result, #previousGuess, #attempts, #status, #showResult {
+    padding: 12px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  #resetButton {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin-left: 48%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #resetButton:hover {
+    background-color: #d32f2f;
+  }
+  #status, #showResult {
+    display: none; /* Hide the divs by default */
+    margin-top: 10px;
+  }
+  
+  #status:not(:empty), #showResult:not(:empty) {
+    display: block; /* Show the divs when they have content */
+  }
