@@ -1,88 +1,182 @@
+/* General Styles */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f7f7f7;
-    margin: 0;
-    padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* Header */
+header {
+  text-align: center;
+}
+
+h1 {
+  color: #ff0303;
+  font-size: 36px;
+  margin-bottom: 10px;
+  font-family:cursive;
+}
+
+h3 {
+  color: #f54040;
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-family: cursive;
+}
+
+#input {
+  padding: 12px;
+  font-size: 16px;
+  width: 220px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+#input:focus {
+  border: 1px solid rgb(255, 0, 0);
+  box-shadow: 0px 0px 2px #d32f2f;
+  outline: none;
+}
+
+#button {
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#button:hover {
+  background-color: #45a049;
+}
+
+#status, #showResult {
+  display: none; /* Hidden by default */
+  margin-top: 10px;
+}
+
+#status:not(:empty), #showResult:not(:empty) {
+  display: block; /* Visible only when they have content */
+}
+
+
+/* Layout */
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Main Game Info (Parent Div) */
+.parentDiv {
+  background-color: #fff;
+  flex: 1;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  text-align: center;
+}
+
+#result, #previousGuess, #attempts, #status, #showResult {
+  padding: 12px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+#resetButton {
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#resetButton:hover {
+  background-color: #d32f2f;
+}
+
+/* Game Info Section */
+.game-info {
+  background-color: #ffffff;
+  flex: 1;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 350px;
+}
+
+.feedback{
+  margin-top: 1rem;
+}
+
+.game-info p {
+  font-size: 1rem;
+  /* color: #333; */
+  line-height: 1.5;
+  margin: 10px 0;
+}
+
+.game-info .highlight {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #c1360f;
+  display: block;
+  position: relative;
+}
+
+.game-info .description {
+  font-size: 0.95rem;
+  margin-top: 10px;
+}
+
+.description{
+  font-family:cursive;
+  font-weight: 600;
+  background: #dfdfdf48;
+  color: #2ea918;
+  border-radius: 10px;
+  text-align: center;
+  padding: 5px;
+}
+
+.game-info b {
+  font-size: 1.2rem;
+  color: #ff4500;
+  display: block;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  header {
-    text-align: center;
-    padding-top: 50px;
-  }
-  
-  h1 {
-    color: #333;
-    font-size: 36px;
-    margin-bottom: 10px;
-  }
-  
-  h3 {
-    color: #666;
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-  
-  #input {
-    padding: 12px;
-    font-size: 16px;
-    width: 220px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin-bottom: 10px;
-  }
-  
-  #button {
-    padding: 12px 24px;
-    font-size: 16px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  #button:hover {
-    background-color: #45a049;
-  }
-  
-  .parentDiv {
-    background-color: #fff;
-    width: 320px;
-    margin: 0 auto;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  #result, #previousGuess, #attempts, #status, #showResult {
-    padding: 12px;
-    margin-bottom: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-  }
-  
-  #resetButton {
-    padding: 12px 24px;
-    font-size: 16px;
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    margin-left: 48%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  #resetButton:hover {
-    background-color: #d32f2f;
-  }
-  #status, #showResult {
-    display: none; /* Hide the divs by default */
-    margin-top: 10px;
-  }
-  
-  #status:not(:empty), #showResult:not(:empty) {
-    display: block; /* Show the divs when they have content */
-  }
+}

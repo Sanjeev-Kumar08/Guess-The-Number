@@ -6,23 +6,48 @@
   <title>Guess Number Game</title>
   <link rel="stylesheet" href="style.css">
 </head>
-  <header>
-    <h1>Guess The Number</h1>
-    <h3>Enter a number between 1-100</h3>
-    <input id="input" placeholder="Enter Number"><br><br>
-    <button id="button" type="submit">Submit</button>
-  </header>
+<body>
+  <div class="container">
+    <header>
+      <h1>Guess The Number</h1>
+      <h3>Enter a number between 1-100</h3>
+      <input id="input" placeholder="Enter Number"><br><br>
+      <button id="button" type="submit">Submit</button>
+    </header>
  
-  <div class="parentDiv" style="margin-top: 20px;">
-    <div id="result">Result</div>
-    <div id="previousGuess">Previous Guess</div>
-    <div id="attempts">Attempts Remaining : 10</div>
-    <div style="margin-top: 10px;" id="status"></div>
-    <div style="margin-top: 10px;" id="showResult"></div>
-  </div>  
-
-  <button style="background-color: red; margin-top: 15px;" id="resetButton">Reset</button>
- 
+    <div class="content">
+      <div class="parentDiv">
+        <div id="result">Result</div>
+        <div id="previousGuess">Previous Guess</div>
+        <div id="attempts">Attempts Remaining: 10</div>
+        <div id="status"></div>
+        <div id="showResult"></div>
+        <button id="resetButton">Reset</button>
+      </div>
+      <div class="game-info">
+        <div class="info">
+          <p>Game will give you feedback based on the range between your guessed number and random number</p>
+          <b>Guess wisely!</b>
+          <div class="feedback">
+            <span class="highlight">If the range is less than 5:</span>
+            <p class="description">You're too close</p>
+          </div>
+          <div class="feedback">
+            <span class="highlight">If the range is between 5 and 15:</span>
+            <p class="description">You're close</p>
+          </div>
+          <div class="feedback">
+            <span class="highlight">If the range is between 15 and 25:</span>
+            <p class="description">Going in the right direction, my friend</p>
+          </div>
+          <div class="feedback">
+            <span class="highlight">If the range is greater than 25:</span>
+            <p class="description">Too far, buddy</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>

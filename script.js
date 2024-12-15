@@ -1,8 +1,8 @@
 // console.log("Guess The Number!!")
 
 //Generate Random Number
-let randomNumebr = Math.round((Math.random() * 10)*10)
-console.log(`Random Number is : ${randomNumebr}`)
+let randomNumebr = Math.round((Math.random() * 10) * 10)
+// console.log(`Random Number is : ${randomNumebr}`)
 
 const inputElement = document.querySelector('#input')
 // const inputNumber = parseInt(inputElement.value);
@@ -37,13 +37,11 @@ const emptyInput = (event)=>{
   if(event.key === 'Enter'){
     event.target.value = "";
   }
-} */ 
+} */
 
-function resetGame(){
+function resetGame() {
   alert("Game Reseted")
-  // console.log("Game Reset!")
-  randomNumebr = Math.round((Math.random() * 10)*10)
-  console.log(randomNumebr)
+  randomNumebr = Math.round((Math.random() * 10) * 10)
 
   result.innerText = "Result: ";
 
@@ -58,80 +56,64 @@ function resetGame(){
   statusDiv.innerHTML = "";
 }
 
-function checkstatus(inputNumber , randomNumebr){
+function checkstatus(inputNumber, randomNumebr) {
   const difference = Math.abs(randomNumebr - inputNumber);
-  // console.log(difference);
-  if(difference < 15 && difference > 5){
-    console.log("Your Number is Close to Random Number")
-    statusDiv.innerHTML = "Your Number is Close to Random Number"
+
+  if (difference < 5) {
+    statusDiv.innerHTML = "You're too close..."
   }
-  else if(difference < 5){
-    console.log("Your Number is Very Close to Random Number")
-    statusDiv.innerHTML = "Your Number is Very Close to Random Number"
+  else if (difference > 5 && difference < 15) {
+    statusDiv.innerHTML = "You're close..."
   }
-  else if(difference > 25){
-    console.log("Your Number is Too Large")
-    statusDiv.innerHTML = "Your Number is Too Large"
+  else if (difference > 15 && difference < 25) {
+    statusDiv.innerHTML = "Going in Right Direction my friend..."
   }
-  else{
-    console.log("Your'e on Right Track")
-    statusDiv.innerHTML = "Your'e on Right Track"
+  else {
+    statusDiv.innerHTML = "Too far buddy..."
   }
 }
 
-function playGame(){
-    const inputNumber = parseInt(inputElement.value); 
-    if(inputNumber>=0 && inputNumber<=100){
-      previousGuesses.push(inputNumber);
-      checkstatus(inputNumber , randomNumebr);
-      if(attempts >= 1){
-        if(inputNumber === randomNumebr){
-          alert(`You Won! Number Was : ${randomNumebr}`)
-          result.innerText = "Found!"
-          resetGame();
-        }
-        else{
-          result.innerText = "Not Found!"
-
-        //Display Previous Guesses on Page
-        previousGuessesElement.innerHTML = `Previous Guess : ${previousGuesses}`
-        // console.log(previousGuesses)
-
-        //Display remaining Attempts
-        attempsRemainig.innerHTML = `Attempts Remainig : ${--attempts}`
-        }
-      }
-      else{
-        alert("No Attempts Remaining")
-        result.innerText = "You Lost!"
-
-        //showResult
-        // console.log(showResult)
-        showResult.innerHTML = `Number Was : ${randomNumebr}`
-      }
+function playGame() {
+  const inputNumber = parseInt(inputElement.value);
+  if (inputNumber > 0 && inputNumber <= 100 && attempts >= 1) {
+    previousGuesses.push(inputNumber);
+    checkstatus(inputNumber, randomNumebr);
+    if (inputNumber === randomNumebr) {
+      alert(`You Won! Number Was : ${randomNumebr}`)
+      result.innerText = "Found!"
+      resetGame();
     }
-    else{
-      alert("Please Enter a Number Between 1-100")
+    else {
+      result.innerText = "Not Found!"
+
+      previousGuessesElement.innerHTML = `Previous Guess : ${previousGuesses}`
+      attempsRemainig.innerHTML = `Attempts Remainig : ${--attempts}`
     }
+  }
+  else if (attempts <= 1) {
+    alert("No Attempts Remaining")
+    result.innerText = "You Lost!"
+    showResult.innerHTML = `Number Was : ${randomNumebr}`
+  }
+  else {
+    alert("Please Enter a Number Between 1-100")
+  }
 }
 
-function rungame(){
+function rungame() {
   playGame();
-  //clear the input
   inputElement.value = "";
 }
 
-const rungameOnKey = (event)=>{
-  if(event.key === 'Enter'){  
+const rungameOnKey = (event) => {
+  if (event.key === 'Enter') {
     playGame();
-    //clear the input
     inputElement.value = "";
   }
-  // inputElement.addEventListener('keydown' , emptyInput , false);
 }
 
-resetbutton.addEventListener('click' , resetGame, false)
+resetbutton.addEventListener('click', resetGame, false)
 
-submitButton.addEventListener('click' , rungame , false)
+submitButton.addEventListener('click', rungame, false)
 
 inputElement.addEventListener('keydown', rungameOnKey, false)
